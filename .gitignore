@@ -29,8 +29,8 @@ bld/
 [Ll]ogs/
 
 # MAUI specific
-**/obj/
-**/bin/
+**/obj/**
+**/bin/**
 
 # NuGet Packages
 *.nupkg
