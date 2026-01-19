@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="MauiApp1.Views.ProduktView"
+     x:Name="This">
+	<Frame Padding="10" Margin="5" BackgroundColor="{Binding KolorTla}" CornerRadius="8">
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto"/>
+				<RowDefinition Height="Auto"/>
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*"/>
+				<ColumnDefinition Width="Auto"/>
+				<ColumnDefinition Width="Auto"/>
+			</Grid.ColumnDefinitions>
+
+			<StackLayout Grid.Row="0" Grid.Column="0" Spacing="5">
+				<Label Text="{Binding Nazwa}" FontSize="18" FontAttributes="Bold"
+				   TextDecorations="{Binding Dekoracja}"/>
+				<Label Text="{Binding Jednostka}" FontSize="14" TextColor="Gray"/>
+				<Label Text="{Binding SlepInfo}" FontSize="12" TextColor="Blue" IsVisible="{Binding CzySklep}"/>
+				<Label Text="[OPCJONALNY]" FontSize="12" TextColor="Orange" IsVisible="{Binding CzyOpcjonalny}"/>
+			</StackLayout>
+
+			<StackLayout Grid.Row="0" Grid.Column="1" Orientation="Horizontal" Spacing="10" VerticalOptions="Center">
+				<Button Text="-" Clicked="OnMinusClicked" WidthRequest="40" HeightRequest="40"/>
+				<Entry Text="{Binding Ilosc}" Keyboard="Numeric" WidthRequest="60" HorizontalTextAlignment="Center"
+				  TextChanged="OnIloscChanged"/>
+				<Button Text="+" Clicked="OnPlusClicked" WidthRequest="40" HeightRequest="40"/>
+			</StackLayout>
+
+			<StackLayout Grid.Row="0" Grid.Column="2" Spacing="5" VerticalOptions="Center">
+				<CheckBox IsChecked="{Binding CzyKupiony}" CheckedChanged="OnKupionyChanged"/>
+				<Button Text="X" Clicked="OnUsunClicked" BackgroundColor="Red" TextColor="White"
+			   WidthRequest="40" HeightRequest="40"/>
+			</StackLayout>
+		</Grid>
+	</Frame>
+</ContentView>
